@@ -24,7 +24,7 @@ def cities(request):
             # cities = form.save(commit=False)  #Если нужно изменить данные перед сохранением
             cities = form.save()
             cities.save()
-            # return redirect('cities')
+            return redirect('cities')
     else:
         form = CityForm()
     context = {'title':Cities, 'cities':all_cities, 'form':form}

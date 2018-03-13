@@ -9,12 +9,6 @@
                 <p><strong>{{ city.name }}</strong></p>
             {% endfor %}
         </div>
-{#        <form action="#" method="post">#}
-{#            <p>Новый город:</p>#}
-{#            <input type="text" name="city" placeholder='Город' value="">#}
-{#            <br><br>#}
-{#            <button type="submit">Сохранить</button>#}
-{#        </form>#}
         <form method="POST">
             {% csrf_token %}
             {{ form }}
