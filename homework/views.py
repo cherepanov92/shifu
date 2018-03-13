@@ -44,4 +44,21 @@ def new_city(request):
     context = {'title':Cities, 'cities':all_cities, 'form':form}
     return render(request, 'new_city.html', context)
 
+def edit_city(request, id):
+    all_cities = Cities.objects.all()
+    if request.method == 'POST':
+        form = CityForm(request.POST)
+        if form.is_valid():
+            # cities = form.save(commit=False)  #Если нужно изменить данные перед сохранением
+            cities = form.save(commit=False)
+            cities.id = id
+            cities.save()
+            return redirect('cities')
+    else:
+        form = CityForm()
+
+    db_city = Cities.objects.get(id=id)
+    context = {'title':Cities, 'cities':all_cities, 'form':form, 'text':db_city.name}
+    return render(request, 'edit_city.html', context)
+
 
