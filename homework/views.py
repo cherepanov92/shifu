@@ -1,9 +1,14 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
+# from django.template import RequestContext, loader
+
+
+# def index(request):
+#     return HttpResponse("You're looking at question")
 
 def index(request):
-    return HttpResponse("You're looking at question")
+    my_list = ['one', 'two', 'end']
+    context = {'question_list': my_list}
+    return render(request, 'index.html', context)
 
-def test(request ,text = 'не найден'):
-    return HttpResponse('Твой текст {}'.format(text))
 
 # Create your views here.
