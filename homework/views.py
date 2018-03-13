@@ -30,6 +30,18 @@ def cities(request):
     context = {'title':Cities, 'cities':all_cities, 'form':form}
     return render(request, 'cities.html', context)
 
+def new_city(request):
+    all_cities = Cities.objects.all()
+    if request.method == 'POST':
+        form = CityForm(request.POST)
+        if form.is_valid():
+            # cities = form.save(commit=False)  #Если нужно изменить данные перед сохранением
+            cities = form.save()
+            cities.save()
+            return redirect('cities')
+    else:
+        form = CityForm()
+    context = {'title':Cities, 'cities':all_cities, 'form':form}
+    return render(request, 'new_city.html', context)
 
 
-# Create your views here.
