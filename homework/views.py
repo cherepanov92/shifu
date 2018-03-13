@@ -2,10 +2,6 @@ from django.shortcuts import render, redirect
 from homework.models import Page, Cities
 from .forms import CityForm
 
-
-# def index(request):
-#     return HttpResponse("You're looking at question")
-
 def index(request):
     my_list = Page.objects.all()
     context = {'title':'index' ,'question_list': my_list}
@@ -61,4 +57,7 @@ def edit_city(request, id):
     context = {'title':Cities, 'cities':all_cities, 'form':form, 'text':db_city.name}
     return render(request, 'edit_city.html', context)
 
+def del_city(request, id):
+    Cities.objects.get(id = id).delete()
+    return redirect('cities')
 

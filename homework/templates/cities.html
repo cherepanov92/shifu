@@ -8,8 +8,9 @@
             {% for city in cities %}
                 <p><strong>{{ city.name }}</strong></p>
                 <a href="edit_city/{{ city.id }}">редактировать</a>
+                <a href="del_city/{{ city.id }}">удалить</a>
+                <hr>
             {% endfor %}
-            <hr>
         </div>
         <a href="{% url 'new_city' %}">Добавить город!</a>
     {% endblock %}
