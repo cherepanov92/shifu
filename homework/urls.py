@@ -19,7 +19,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^page/(?P<title>[a-z]+)$', views.page, name='page'),
-    url(r'^cities$', views.cities, name='cities'),
+    url(r'^all_city$', views.all_city, name='all_city'),
     url(r'^new_city$', views.new_city, name='new_city'),
     url(r'^edit_city/(?P<id>[0-9]+)$', views.edit_city, name='edit_city'),
     url(r'^del_city/(?P<id>[0-9]+)$', views.del_city, name='del_city'),

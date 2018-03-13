@@ -12,19 +12,19 @@ def page(request, title):
     context = {'title': db_page}
     return render(request, 'page.html', context)
 
-def cities(request):
-    all_cities = Cities.objects.all()
+def all_city(request):
+    all_city = Cities.objects.all()
     if request.method == 'POST':
         form = CityForm(request.POST)
         if form.is_valid():
             # cities = form.save(commit=False)  #Если нужно изменить данные перед сохранением
             cities = form.save()
             cities.save()
-            return redirect('cities')
+            return redirect('all_city')
     else:
         form = CityForm()
-    context = {'title':Cities, 'cities':all_cities, 'form':form}
-    return render(request, 'cities.html', context)
+    context = {'title':all_city, 'cities':all_city, 'form':form}
+    return render(request, 'all_city.html', context)
 
 def new_city(request):
     all_cities = Cities.objects.all()
@@ -34,7 +34,7 @@ def new_city(request):
             # cities = form.save(commit=False)  #Если нужно изменить данные перед сохранением
             cities = form.save()
             cities.save()
-            return redirect('cities')
+            return redirect('all_city')
     else:
         form = CityForm()
     context = {'title':Cities, 'cities':all_cities, 'form':form}
@@ -49,7 +49,7 @@ def edit_city(request, id):
             cities = form.save(commit=False)
             cities.id = id
             cities.save()
-            return redirect('cities')
+            return redirect('all_city')
     else:
         form = CityForm()
 
@@ -59,5 +59,4 @@ def edit_city(request, id):
 
 def del_city(request, id):
     Cities.objects.get(id = id).delete()
-    return redirect('cities')
-
+    return redirect('all_city')
