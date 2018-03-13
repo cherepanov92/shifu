@@ -7,8 +7,20 @@ from django.shortcuts import render
 
 def index(request):
     my_list = ['one', 'two', 'end']
-    context = {'question_list': my_list}
+    context = {'title':'index' ,'question_list': my_list}
     return render(request, 'index.html', context)
+
+def one(request):
+    context = {'title': 'one'}
+    return render(request, 'lesson2.html', context)
+
+def two(request):
+    context = {'title': 'two'}
+    return render(request, 'lesson2.html', context)
+
+def end(request):
+    context = {'title': 'end'}
+    return render(request, 'lesson2.html', context)
 
 
 # Create your views here.

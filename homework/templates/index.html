@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
     {% block title %}
-        Lesson 1
+        {{ title }}
     {% endblock %}
 
     {% block content %}
         <form action="/action_page.php">
-            <select multiple name="cars">
                 {% for i in question_list%}
-                    <option value="{{ i }}">{{ i }}</option>
+                    <input class="array_button" type="button" value="{{ i }}" onClick='location.href="/homework/{{ i }}"'>
                 {% endfor %}
-            </select>
-            <br><br>
-            <input type="submit">
         </form>
     {% endblock %}

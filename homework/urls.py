@@ -18,5 +18,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    # url(r'^lesson/1/(?P<text>[a-z]*)$', views.test),
+    url(r'^one$', views.one),
+    url(r'^two$', views.two),
+    url(r'^end$', views.end),
 ]

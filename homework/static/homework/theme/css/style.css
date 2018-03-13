@@ -1,4 +1,14 @@
 
 #content {
+    margin-top: 40px;
     text-align: center;
+}
+
+.array_button {
+    margin: 4px auto 4px ;
+    display: block;
+    height: 25px;
+    width: 60px;
+    color: #736b34;
+
 }
