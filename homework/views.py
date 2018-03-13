@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from homework.models import Page, Cities
+from .forms import CityForm
 
 
 # def index(request):
@@ -17,7 +18,16 @@ def page(request, title):
 
 def cities(request):
     all_cities = Cities.objects.all()
-    context = {'title':Cities, 'cities':all_cities}
+    if request.method == 'POST':
+        form = CityForm(request.POST)
+        if form.is_valid():
+            # cities = form.save(commit=False)  #Если нужно изменить данные перед сохранением
+            cities = form.save()
+            cities.save()
+            # return redirect('cities')
+    else:
+        form = CityForm()
+    context = {'title':Cities, 'cities':all_cities, 'form':form}
     return render(request, 'cities.html', context)
 
 
