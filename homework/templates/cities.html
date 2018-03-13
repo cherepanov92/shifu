@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+    {% block title %}
+        {{ title }}
+    {% endblock %}
+
+    {% block content %}
+        <div class="city_list">
+            {% for city in cities %}
+                <p><strong>{{ city.name }}</strong></p>
+                <a href="edit_city/{{ city.id }}">редактировать</a>
+            {% endfor %}
+            <hr>
+        </div>
+        <a href="{% url 'new_city' %}">Добавить город!</a>
+    {% endblock %}
