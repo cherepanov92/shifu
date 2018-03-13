@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+    {% block title %}
+        {{ title }}
+    {% endblock %}
+
+    {% block content %}
+        <div class="city_list">
+            {% for city in cities %}
+                <strong>{{ city.name }}</strong><br>
+                <button class="edit">Удалить</button>
+                <button class="edit">Редактировать</button>
+                <hr>
+            {% endfor %}
+        </div>
+        <input class="array_button" type="button" value="Добавить" onClick='location.href="{% url 'new_city' %}"'>
+    {% endblock %}

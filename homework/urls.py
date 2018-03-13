@@ -19,5 +19,6 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^page/(?P<title>[a-z]+)$', views.page, name='page'),
-    url(r'^cities$', views.cities, name='cities'),
+    url(r'^city/all$', views.all_city, name='all_city'),
+    url(r'^city/new$', views.new_city, name='new_city'),
 ]

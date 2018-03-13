@@ -2,10 +2,6 @@ from django.shortcuts import render, redirect
 from homework.models import Page, Cities
 from .forms import CityForm
 
-
-# def index(request):
-#     return HttpResponse("You're looking at question")
-
 def index(request):
     my_list = Page.objects.all()
     context = {'title':'index' ,'question_list': my_list}
@@ -16,8 +12,12 @@ def page(request, title):
     context = {'title': db_page}
     return render(request, 'page.html', context)
 
-def cities(request):
+def all_city(request):
     all_cities = Cities.objects.all()
+    context = {'title':Cities, 'cities':all_cities}
+    return render(request, 'all_cities.html', context)
+
+def new_city(request):
     if request.method == 'POST':
         form = CityForm(request.POST)
         if form.is_valid():
@@ -27,9 +27,5 @@ def cities(request):
             return redirect('cities')
     else:
         form = CityForm()
-    context = {'title':Cities, 'cities':all_cities, 'form':form}
-    return render(request, 'cities.html', context)
-
-
-
-# Create your views here.
+        context = {'title': 'New city', 'form': form}
+        return render(request, 'all_cities.html', context)
