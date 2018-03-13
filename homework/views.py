@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from homework.models import Page
+from homework.models import Page, Cities
 
 
 # def index(request):
@@ -16,8 +16,8 @@ def page(request, title):
     return render(request, 'page.html', context)
 
 def cities(request):
-    # db_page = Page.objects.get(title = title)
-    context = {'title': cities}
+    all_cities = Cities.objects.all()
+    context = {'title':Cities, 'cities':all_cities}
     return render(request, 'cities.html', context)
 
 

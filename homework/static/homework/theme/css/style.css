@@ -37,3 +37,15 @@ button {
     width: 100px;
 }
 
+.city_list {
+    text-align: center;
+    font-size: 20px;
+    color: darkred;
+    margin-bottom: 70px;
+    font-family: "Century Gothic";
+
+}
+
+
+
+
