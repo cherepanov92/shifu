@@ -3,5 +3,3 @@ from .models import Page, Cities
 
 admin.site.register(Page)
 admin.site.register(Cities)
-
-# Register your models here.

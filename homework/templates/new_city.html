@@ -4,11 +4,6 @@
     {% endblock %}
 
     {% block content %}
-        <div class="city_list">
-            {% for city in cities %}
-                <p><strong>{{ city.name }}</strong></p>
-            {% endfor %}
-        </div>
         <form method="POST">
             {% csrf_token %}
             {{ form }}
