@@ -4,9 +4,7 @@
     {% endblock %}
 
     {% block content %}
-        <form action="/action_page.php">
-                {% for i in question_list%}
-                    <input class="array_button" type="button" value="{{ i }}" onClick='location.href="/homework/{{ i }}"'>
-                {% endfor %}
-        </form>
+        {% for i in question_list%}
+            <input class="array_button" type="button" value="{{ i }}" onClick='location.href="/homework/page/{{ i }}"'>
+        {% endfor %}
     {% endblock %}

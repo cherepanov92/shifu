@@ -18,7 +18,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^one$', views.one),
-    url(r'^two$', views.two),
-    url(r'^end$', views.end),
+    url(r'^page/(?P<title>[a-z]+)$', views.page),
 ]
