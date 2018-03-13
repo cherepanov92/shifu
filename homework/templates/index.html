@@ -7,5 +7,5 @@
         {% for i in question_list%}
             <input class="array_button" type="button" value="{{ i }}" onClick='location.href="{% url 'page' i.title%}"'>
         {% endfor %}
-        <input class="array_button" id="cities" type="button" value="cities" onClick='location.href="{% url 'all_city' %}"'>
+        <input class="array_button" id="cities" type="button" value="cities" onClick='location.href="{% url 'cities' %}"'>
     {% endblock %}
