@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+    {% block title %}
+        {{ title }}
+    {% endblock %}
+
+    {% block content %}
+        <form action="#">
+            <p>Новый город:</p>
+            <input type="text" name="city" placeholder='Город' value="">
+            <br><br>
+            <button type="submit">Сохранить</button>
+        </form>
+
+
+    {% endblock %}

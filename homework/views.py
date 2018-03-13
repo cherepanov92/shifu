@@ -15,6 +15,10 @@ def page(request, title):
     context = {'title': db_page}
     return render(request, 'page.html', context)
 
+def cities(request):
+    # db_page = Page.objects.get(title = title)
+    context = {'title': cities}
+    return render(request, 'cities.html', context)
 
 
 
